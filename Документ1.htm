@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre Numérologie de Su Jai</title>
+    <link rel="stylesheet" href="Документ2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Découvrez votre Numérologie</h1>
+        <form id="natalForm" onsubmit="redirectToNatalChart(event)">
+            <label for="name">Nom:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="birthdate">Date de Naissance:</label>
+            <div>
+                <label for="day">Jour:</label>
+                <input type="number" id="day" name="day" min="1" max="31" required>
+            </div>
+            <div>
+                <label for="month">Mois:</label>
+                <input type="number" id="month" name="month" min="1" max="12" required>
+            </div>
+            <div>
+                <label for="year">Année:</label>
+                <input type="number" id="year" name="year" min="1900" max="2100" required>
+            </div>
+
+            <button type="submit">Obtenir votre caractère</button>
+        </form>
+    </div>
+
+    <script>
+        function redirectToNatalChart(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const day = document.getElementById("day").value;
+            const month = document.getElementById("month").value;
+            const year = document.getElementById("year").value;
+
+            // Переход на другую страницу с передачей параметров
+            window.location.href = `Документ2.htm?name=${encodeURIComponent(name)}&birthdate=${encodeURIComponent(day + '-' + month + '-' + year)}`;
+        }
+    </script>
+</body>
+</html>
